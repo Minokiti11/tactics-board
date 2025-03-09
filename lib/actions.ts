@@ -130,3 +130,15 @@ export async function addComment(photoId: string, commentData: CommentFormData):
   }
 }
 
+// 写真を削除
+export async function deletePhoto(id: string): Promise<void> {
+  try {
+    await prisma.photo.delete({
+      where: { id },
+    });
+    revalidatePath("/");
+  } catch (error) {
+    console.error("写真の削除に失敗しました", error);
+    throw new Error("写真の削除に失敗しました");
+  }
+}

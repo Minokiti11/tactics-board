@@ -1,6 +1,8 @@
+"use client";
 import Link from "next/link"
 import Image from "next/image"
 import { notFound } from "next/navigation"
+import { deletePhoto } from "@/lib/actions";
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ChevronLeft } from "lucide-react"
@@ -47,6 +49,18 @@ export default async function PhotoPage({
             </div>
             <ShareButton id={photo.id} />
           </div>
+          
+          <Button
+            variant="destructive"
+            onClick={async () => {
+              if (confirm("本当にこの投稿を削除しますか？")) {
+                await deletePhoto(photo.id);
+                window.location.href = "/";
+              }
+            }}
+          >
+            投稿を削除
+          </Button>
 
           {photo.description && <p className="mt-4 mb-6">{photo.description}</p>}
 
