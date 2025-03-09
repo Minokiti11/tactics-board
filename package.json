@@ -4,16 +4,16 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && next build",
+    "build": "npx prisma generate && next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "prisma generate"
+    "postinstall": "npx prisma generate"
   },
   "dependencies": {
     "@prisma/client": "^5.10.2",
     "@vercel/blob": "^0.22.1",
     "date-fns": "^3.3.1",
-    "next": "14.1.0",
+    "next": "^14.2.24",
     "react": "^18",
     "react-dom": "^18"
   },
@@ -22,12 +22,11 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
-    "eslint": "^8",
+    "eslint": "^9.22.0",
     "eslint-config-next": "14.1.0",
     "postcss": "^8",
-    "prisma": "^5.10.2",
+    "prisma": "^5.22.0",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   }
 }
-
