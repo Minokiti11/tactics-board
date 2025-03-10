@@ -21,6 +21,7 @@ export function UploadForm() {
   const [preview, setPreview] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [progress, setProgress] = useState(0)
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0]
@@ -70,8 +71,25 @@ export function UploadForm() {
       formData.append("title", title)
       formData.append("description", description)
 
-      const photoId = await uploadPhoto(formData)
-      router.push(`/photos/${photoId}`)
+      const xhr = new XMLHttpRequest()
+      xhr.open("POST", "/upload-endpoint")
+      xhr.upload.onprogress = (event) => {
+        if (event.lengthComputable) {
+          const percentComplete = (event.loaded / event.total) * 100
+          setProgress(percentComplete)
+        }
+      }
+      xhr.onload = async () => {
+        const photoId = await uploadPhoto(formData)
+        router.push(`/photos/${photoId}`)
+        setLoading(false)
+      }
+      xhr.onerror = () => {
+        console.error("アップロードエラー:")
+        setError("アップロード中にエラーが発生しました。もう一度お試しください。")
+        setLoading(false)
+      }
+      xhr.send(formData)
     } catch (err) {
       console.error("アップロードエラー:", err)
       setError("アップロード中にエラーが発生しました。もう一度お試しください。")
@@ -137,6 +155,15 @@ export function UploadForm() {
       </div>
 
       {error && <p className="text-destructive text-sm">{error}</p>}
+
+      {loading && (
+        <div className="relative w-full h-2 bg-gray-200">
+          <div
+            className="absolute h-full bg-blue-600"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+      )}
 
       <Button type="submit" className="w-full" size="lg" disabled={loading || !file}>
         {loading ? "アップロード中..." : "アップロード"}
