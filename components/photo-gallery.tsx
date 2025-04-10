@@ -5,6 +5,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { MessageCircle, Share2 } from "lucide-react"
+import { LikeButton } from "@/components/like-button"
 import { getPhotos } from "@/lib/actions"
 import type { Photo } from "@/lib/types"
 
@@ -71,6 +72,11 @@ export function PhotoGallery() {
                   <MessageCircle className="h-4 w-4 mr-1" />
                   <span>{photo.comments?.length || 0}</span>
                 </div>
+                <LikeButton
+                photoId={photo.id}
+                initialLikeCount={photo.likeCount}
+                initialIsLiked={photo.isLiked || false}
+                />
                 <div className="flex items-center">
                   <Share2 className="h-4 w-4 mr-1" />
                   <span>共有</span>

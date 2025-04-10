@@ -5,6 +5,9 @@ export interface Photo {
   description?: string
   createdAt: string
   comments?: Comment[]
+  likes: Like[]
+  isLiked?: boolean
+  likeCount: number
 }
 
 export interface Comment {
@@ -12,6 +15,13 @@ export interface Comment {
   photoId: string
   name: string
   content: string
+  createdAt: string
+}
+
+export interface Like {
+  id: string
+  clientId: string
+  photoId: string
   createdAt: string
 }
 
