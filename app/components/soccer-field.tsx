@@ -42,16 +42,16 @@ export function SoccerField() {
         <circle cx="940" cy="340" r="5" fill="white" />
   
         {/* Left penalty arc */}
-        <path d="M 187.5,255 A 91.5,91.5 0 0 1 187.5,425" fill="none" stroke="white" strokeWidth="5" />
+        <path d="M 172,255 A 91.5,91.5 0 0 1 172,425" fill="none" stroke="white" strokeWidth="5" />
   
         {/* Right penalty arc */}
-        <path d="M 862.5,255 A 91.5,91.5 0 0 0 862.5,425" fill="none" stroke="white" strokeWidth="5" />
+        <path d="M 878,255 A 91.5,91.5 0 0 0 878,425" fill="none" stroke="white" strokeWidth="5" />
   
         {/* Corner arcs */}
-        <path d="M 15,15 A 10,10 0 0 1 25,25" fill="none" stroke="white" strokeWidth="5" />
-        <path d="M 1035,15 A 10,10 0 0 0 1025,25" fill="none" stroke="white" strokeWidth="5" />
-        <path d="M 15,665 A 10,10 0 0 0 25,655" fill="none" stroke="white" strokeWidth="5" />
-        <path d="M 1035,665 A 10,10 0 0 1 1025,655" fill="none" stroke="white" strokeWidth="5" />
+        <path d="M 25,675 A 20,20 0 0 0 5,655" fill="none" stroke="white" strokeWidth="5" />
+        <path d="M 1025,5 A 20,20 0 0 0 1045,25" fill="none" stroke="white" strokeWidth="5" />
+        <path d="M 25,5 A 20,20 0 0 1 5,25" fill="none" stroke="white" strokeWidth="5" />
+        <path d="M 1025,675 A 20,20 0 0 1 1045,655" fill="none" stroke="white" strokeWidth="5" />
       </svg>
     )
   }

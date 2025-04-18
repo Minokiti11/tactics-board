@@ -19,39 +19,78 @@ type Player = {
   direction: number // angle in degrees
 }
 
-// Default 4-4-2 formation for home team with position names
-const defaultHomeFormation: Omit<Player, "id">[] = [
+// 4-4-2 formation for home team
+const formation442Home: Omit<Player, "id">[] = [
   // Goalkeeper
   { team: "home", position: { x: 10, y: 50 }, number: 1, positionName: "GK", direction: 0 },
   // Defenders (4)
-  { team: "home", position: { x: 20, y: 20 }, number: 2, positionName: "RB", direction: 0 },
+  { team: "home", position: { x: 20, y: 20 }, number: 2, positionName: "RSB", direction: 0 },
   { team: "home", position: { x: 20, y: 40 }, number: 3, positionName: "CB", direction: 0 },
   { team: "home", position: { x: 20, y: 60 }, number: 4, positionName: "CB", direction: 0 },
-  { team: "home", position: { x: 20, y: 80 }, number: 5, positionName: "LB", direction: 0 },
+  { team: "home", position: { x: 20, y: 80 }, number: 5, positionName: "LSB", direction: 0 },
   // Midfielders (4)
-  { team: "home", position: { x: 40, y: 20 }, number: 6, positionName: "RM", direction: 0 },
-  { team: "home", position: { x: 40, y: 40 }, number: 7, positionName: "CM", direction: 0 },
-  { team: "home", position: { x: 40, y: 60 }, number: 8, positionName: "CM", direction: 0 },
-  { team: "home", position: { x: 40, y: 80 }, number: 9, positionName: "LM", direction: 0 },
+  { team: "home", position: { x: 40, y: 20 }, number: 6, positionName: "RMF", direction: 0 },
+  { team: "home", position: { x: 40, y: 40 }, number: 7, positionName: "CMF", direction: 0 },
+  { team: "home", position: { x: 40, y: 60 }, number: 8, positionName: "CMF", direction: 0 },
+  { team: "home", position: { x: 40, y: 80 }, number: 9, positionName: "LMF", direction: 0 },
   // Forwards (2)
   { team: "home", position: { x: 60, y: 35 }, number: 10, positionName: "CF", direction: 0 },
   { team: "home", position: { x: 60, y: 65 }, number: 11, positionName: "CF", direction: 0 },
 ]
 
-// Default 4-4-2 formation for away team with position names
-const defaultAwayFormation: Omit<Player, "id">[] = [
+// 4-3-3 formation for home team
+const formation433Home: Omit<Player, "id">[] = [
+  // Goalkeeper
+  { team: "home", position: { x: 10, y: 50 }, number: 1, positionName: "GK", direction: 0 },
+  // Defenders (4)
+  { team: "home", position: { x: 20, y: 20 }, number: 2, positionName: "RSB", direction: 0 },
+  { team: "home", position: { x: 20, y: 40 }, number: 3, positionName: "CB", direction: 0 },
+  { team: "home", position: { x: 20, y: 60 }, number: 4, positionName: "CB", direction: 0 },
+  { team: "home", position: { x: 20, y: 80 }, number: 5, positionName: "LSB", direction: 0 },
+  // Midfielders (3)
+  { team: "home", position: { x: 40, y: 30 }, number: 6, positionName: "CMF", direction: 0 },
+  { team: "home", position: { x: 40, y: 50 }, number: 7, positionName: "CMF", direction: 0 },
+  { team: "home", position: { x: 40, y: 70 }, number: 8, positionName: "CMF", direction: 0 },
+  // Forwards (3)
+  { team: "home", position: { x: 50, y: 20 }, number: 9, positionName: "LWG", direction: 0 },
+  { team: "home", position: { x: 60, y: 50 }, number: 10, positionName: "CF", direction: 0 },
+  { team: "home", position: { x: 50, y: 80 }, number: 11, positionName: "RWG", direction: 0 },
+]
+
+// 4-2-3-1 formation for home team
+const formation4231Home: Omit<Player, "id">[] = [
+  // Goalkeeper
+  { team: "home", position: { x: 10, y: 50 }, number: 1, positionName: "GK", direction: 0 },
+  // Defenders (4)
+  { team: "home", position: { x: 20, y: 20 }, number: 2, positionName: "RSB", direction: 0 },
+  { team: "home", position: { x: 20, y: 40 }, number: 3, positionName: "CB", direction: 0 },
+  { team: "home", position: { x: 20, y: 60 }, number: 4, positionName: "CB", direction: 0 },
+  { team: "home", position: { x: 20, y: 80 }, number: 5, positionName: "LSB", direction: 0 },
+  // Defensive Midfielders (2)
+  { team: "home", position: { x: 35, y: 40 }, number: 6, positionName: "DMF", direction: 0 },
+  { team: "home", position: { x: 35, y: 60 }, number: 7, positionName: "DMF", direction: 0 },
+  // Attacking Midfielders (3)
+  { team: "home", position: { x: 50, y: 20 }, number: 8, positionName: "LMF", direction: 0 },
+  { team: "home", position: { x: 50, y: 50 }, number: 9, positionName: "OMF", direction: 0 },
+  { team: "home", position: { x: 50, y: 80 }, number: 10, positionName: "RMF", direction: 0 },
+  // Forward (1)
+  { team: "home", position: { x: 65, y: 50 }, number: 11, positionName: "CF", direction: 0 },
+]
+
+// 4-4-2 formation for away team
+const formation442Away: Omit<Player, "id">[] = [
   // Goalkeeper
   { team: "away", position: { x: 90, y: 50 }, number: 1, positionName: "GK", direction: 180 },
   // Defenders (4)
-  { team: "away", position: { x: 80, y: 20 }, number: 2, positionName: "RB", direction: 180 },
+  { team: "away", position: { x: 80, y: 20 }, number: 2, positionName: "RSB", direction: 180 },
   { team: "away", position: { x: 80, y: 40 }, number: 3, positionName: "CB", direction: 180 },
   { team: "away", position: { x: 80, y: 60 }, number: 4, positionName: "CB", direction: 180 },
-  { team: "away", position: { x: 80, y: 80 }, number: 5, positionName: "LB", direction: 180 },
+  { team: "away", position: { x: 80, y: 80 }, number: 5, positionName: "LSB", direction: 180 },
   // Midfielders (4)
-  { team: "away", position: { x: 60, y: 20 }, number: 6, positionName: "RM", direction: 180 },
-  { team: "away", position: { x: 60, y: 40 }, number: 7, positionName: "CM", direction: 180 },
-  { team: "away", position: { x: 60, y: 60 }, number: 8, positionName: "CM", direction: 180 },
-  { team: "away", position: { x: 60, y: 80 }, number: 9, positionName: "LM", direction: 180 },
+  { team: "away", position: { x: 60, y: 20 }, number: 6, positionName: "RMF", direction: 180 },
+  { team: "away", position: { x: 60, y: 40 }, number: 7, positionName: "CMF", direction: 180 },
+  { team: "away", position: { x: 60, y: 60 }, number: 8, positionName: "CMF", direction: 180 },
+  { team: "away", position: { x: 60, y: 80 }, number: 9, positionName: "LMF", direction: 180 },
   // Forwards (2)
   { team: "away", position: { x: 40, y: 35 }, number: 10, positionName: "CF", direction: 180 },
   { team: "away", position: { x: 40, y: 65 }, number: 11, positionName: "CF", direction: 180 },
@@ -60,68 +99,30 @@ const defaultAwayFormation: Omit<Player, "id">[] = [
 // Create initial players with IDs
 const createInitialPlayers = (): Player[] => {
   return [
-    ...defaultHomeFormation.map((player) => ({
+    ...formation442Home.map((player) => ({
       ...player,
       id: `home-player-${player.number}`,
     })),
-    ...defaultAwayFormation.map((player) => ({
+    ...formation442Away.map((player) => ({
       ...player,
       id: `away-player-${player.number}`,
     })),
   ]
 }
 
+// フォーメーションの型定義を追加
+type Formation = "4-4-2" | "4-3-3" | "4-2-3-1"
+
 export default function TacticsBoard() {
   const [players, setPlayers] = useState<Player[]>(createInitialPlayers)
   const [selectedTeam, setSelectedTeam] = useState<"home" | "away">("home")
+  const [selectedFormation, setSelectedFormation] = useState<Formation>("4-4-2")
   const [isDragging, setIsDragging] = useState(false)
   const [draggedPlayer, setDraggedPlayer] = useState<string | null>(null)
   const [imageLoaded, setImageLoaded] = useState(true)
   const [showAlert, setShowAlert] = useState(false)
   const [alertMessage, setAlertMessage] = useState("")
   const boardRef = useRef<HTMLDivElement>(null)
-
-  // Add a player to the field
-  const addPlayer = (e: React.MouseEvent) => {
-    if (!boardRef.current || isDragging) return
-
-    // Count current players for the selected team
-    const teamPlayerCount = players.filter((p) => p.team === selectedTeam).length
-
-    // Check if team already has 11 players
-    if (teamPlayerCount >= 11) {
-      setAlertMessage(`Cannot add more than 11 players to the ${selectedTeam} team.`)
-      setShowAlert(true)
-      setTimeout(() => setShowAlert(false), 3000)
-      return
-    }
-
-    const rect = boardRef.current.getBoundingClientRect()
-    const x = ((e.clientX - rect.left) / rect.width) * 100
-    const y = ((e.clientY - rect.top) / rect.height) * 100
-
-    // Don't add if clicking on an existing player
-    if (
-      e.target instanceof Element &&
-      (e.target.classList.contains("player") || e.target.parentElement?.classList.contains("player"))
-    ) {
-      return
-    }
-
-    // Default direction based on team
-    const direction = selectedTeam === "home" ? 0 : 180
-
-    const newPlayer: Player = {
-      id: `${selectedTeam}-player-${Date.now()}`,
-      team: selectedTeam,
-      position: { x, y },
-      number: teamPlayerCount + 1,
-      positionName: "MF", // Default position name
-      direction: direction,
-    }
-
-    setPlayers([...players, newPlayer])
-  }
 
   // Start dragging a player
   const startDrag = (e: React.MouseEvent, playerId: string) => {
@@ -163,11 +164,6 @@ export default function TacticsBoard() {
         return player
       }),
     )
-  }
-
-  // Clear all players
-  const clearPlayers = () => {
-    setPlayers([])
   }
 
   // Reset to default formation
@@ -216,6 +212,26 @@ export default function TacticsBoard() {
     }
   }, [isDragging])
 
+  // フォーメーションを切り替える関数
+  const changeFormation = (formation: Formation) => {
+    setSelectedFormation(formation)
+    const homeFormation = formation === "4-4-2" ? formation442Home :
+                         formation === "4-3-3" ? formation433Home :
+                         formation4231Home
+    const awayFormation = formation442Away // 現在は4-4-2のみ
+
+    setPlayers([
+      ...homeFormation.map((player) => ({
+        ...player,
+        id: `home-player-${player.number}`,
+      })),
+      ...awayFormation.map((player) => ({
+        ...player,
+        id: `away-player-${player.number}`,
+      })),
+    ])
+  }
+
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
       <header className="bg-white border-b p-4">
@@ -259,13 +275,20 @@ export default function TacticsBoard() {
               >
                 Away Team ({players.filter((p) => p.team === "away").length}/11)
               </Button>
+              
+              {/* フォーメーション選択ドロップダウン */}
+              <select
+                value={selectedFormation}
+                onChange={(e) => changeFormation(e.target.value as Formation)}
+                className="px-3 py-2 border rounded-md bg-white"
+              >
+                <option value="4-4-2">4-4-2</option>
+                <option value="4-3-3">4-3-3</option>
+                <option value="4-2-3-1">4-2-3-1</option>
+              </select>
             </div>
 
             <div className="flex gap-2">
-              <Button variant="outline" size="sm" onClick={clearPlayers}>
-                <Trash2 className="h-4 w-4 mr-2" />
-                Clear All
-              </Button>
               <Button variant="outline" size="sm">
                 <Download className="h-4 w-4 mr-2" />
                 Export
@@ -284,7 +307,6 @@ export default function TacticsBoard() {
           <div
             ref={boardRef}
             className="relative w-full aspect-[3/2] rounded-lg overflow-hidden border-2 border-white shadow-lg bg-green-600"
-            onClick={addPlayer}
             onMouseMove={handleDrag}
             style={
               imageLoaded
@@ -314,37 +336,23 @@ export default function TacticsBoard() {
                 onMouseDown={(e) => startDrag(e, player.id)}
                 onContextMenu={(e) => rotatePlayer(e, player.id)}
               >
-                {/* Direction triangle */}
-                <div
-                  className={`w-0 h-0 
-                    border-l-[10px] border-l-transparent 
-                    border-r-[10px] border-r-transparent 
-                    border-b-[15px] ${player.team === "home" ? "border-b-blue-600" : "border-b-red-600"}`}
-                  style={{
-                    transform: `rotate(${player.direction}deg)`,
-                    marginBottom: "-5px",
-                  }}
-                />
 
                 {/* Player circle with number */}
                 <div
-                  className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-bold
+                  className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm
                     ${player.team === "home" ? "bg-blue-600" : "bg-red-600"}`}
                 >
-                  {player.number}
+                  {player.positionName}
                 </div>
-
-                {/* Position name */}
-                <div className="mt-1 px-1 text-xs font-bold bg-white/80 rounded">{player.positionName}</div>
               </div>
             ))}
           </div>
 
           <div className="mt-4 text-center text-gray-600">
-            <p>Click on the field to add players. Drag to move. Right-click to rotate direction.</p>
+            <p>Drag to move.</p>
             <p className="text-sm mt-1">
               <RotateCw className="inline h-3 w-3 mr-1" />
-              Player positions: GK (Goalkeeper), CB (Center Back), RB/LB (Right/Left Back), CM (Center Mid), RM/LM
+              Player positions: GK (Goalkeeper), CB (Center Back), RSB/LSB (Right/Left Back), CMF (Center Mid), RMF/LMF
               (Right/Left Mid), CF (Center Forward), WG (Winger)
             </p>
           </div>

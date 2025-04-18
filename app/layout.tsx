@@ -15,7 +15,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Nature Map Sharing App",
+  title: "Tactics Board App",
   description: "Share your map in your groups",
 };
 
